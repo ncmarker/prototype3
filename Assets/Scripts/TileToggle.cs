@@ -10,6 +10,8 @@ public class TileToggler : MonoBehaviour
     [SerializeField] private Tile wallTile; 
     [SerializeField] private Tile mazeTile; 
 
+    [SerializeField] private AudioSource audioSource;
+
     private Vector3Int wallPos = Vector3Int.zero;
     private Vector3Int mazePos = Vector3Int.zero;
 
@@ -19,11 +21,13 @@ public class TileToggler : MonoBehaviour
         {
             wallPos = new Vector3Int(-1,-4,0);
             mazePos = new Vector3Int(0,-5,0);
+            audioSource.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             wallPos = new Vector3Int(2,-1,0);
             mazePos = new Vector3Int(-3,1,0);
+            audioSource.Play();
         }
 
         MapChange(wallPos, mazePos);
